@@ -1,0 +1,18 @@
+<h1 class="fst-italic text-center">{{platillo.strMeal}}</h1>
+
+<div class="row">
+  <div class="col-4">
+    <img [src]="platillo.strMealThumb" loading="lazy" class="w-100 h-auto">
+  </div>
+  <div class="col-8">
+    <b>Instrucciones</b>
+    <p>{{platillo.strInstructions}}</p>
+    <b>Etiquetas</b>
+    <p>{{platillo.strTags}}</p>
+    <b>Origen</b>
+    <p>{{platillo.strArea}}</p>
+    <b>Categoría</b>
+    <p>{{platillo.strCategory}}</p>
+    <a [href]="platillo.strYoutube" target="_blank">Ver en Youtube</a>
+  </div>
+</div>

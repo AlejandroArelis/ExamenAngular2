@@ -1,0 +1,13 @@
+<div class="row g-2">
+  <div class="col-12">
+    <h1 class="text-center m-0 fst-italic">Platillo del día</h1>
+  </div>
+  <div class="col-12">
+    <a [routerLink]="['/', 'dashboard', 'platillo', data.idMeal]">
+      <img [src]="data.strMealThumb" loading="lazy" class="w-100 h-auto">
+    </a>
+  </div>
+  <div class="col-12">
+    <p class="m-0 text-center">{{data.strMeal}} ({{data.strArea}})</p>
+  </div>
+</div>

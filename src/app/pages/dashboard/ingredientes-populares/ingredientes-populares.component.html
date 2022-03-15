@@ -1,0 +1,9 @@
+<h1 class="text-center">Ingredientes populares</h1>
+
+<mat-divider></mat-divider>
+
+<div class="row g-2 mt-3">
+  <div class="col-12 col-lg-3" *ngFor="let ingrediente of ingredientes">
+    <ingrediente [ingrediente]="ingrediente" [routerLink]="[ingrediente.strIngredient, 'platillos']" style="cursor: pointer;"></ingrediente>
+  </div>
+</div>

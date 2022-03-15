@@ -1,0 +1,29 @@
+<mat-drawer-container fullscreen>
+
+  <mat-toolbar class="bg-white">
+    <div class="ms-auto">
+      <button mat-button routerLink="perfil">
+        <mat-icon mat-icon-button>account_circle</mat-icon> Usuario
+      </button>
+    </div>
+  </mat-toolbar>
+
+
+  <mat-drawer class="bg-white" #drawer mode="side" opened style="width: 250px;">
+
+    <div style="padding: 10px 15px;">
+      <mat-selection-list #shoes [multiple]="false">
+        <mat-list-option *ngFor="let page of pages" [routerLink]="page.path" routerLinkActive="mat-list-single-selected-option">
+          <mat-icon matListIcon>{{page.icon}}</mat-icon> {{page.name}}
+        </mat-list-option>
+      </mat-selection-list>
+    </div>
+
+  </mat-drawer>
+
+
+  <div class="container-fluid py-5">
+    <router-outlet></router-outlet>
+  </div>
+
+</mat-drawer-container>

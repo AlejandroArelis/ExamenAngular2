@@ -1,0 +1,62 @@
+<h1 class="text-center">Platillos</h1>
+
+<mat-divider></mat-divider>
+
+<div class="row g-2 mt-3">
+  <div class="col-4">
+    <mat-form-field class="w-100">
+      <mat-label>Areas</mat-label>
+      <mat-select (selectionChange)="getByArea()" [(ngModel)]="selectedArea">
+        <mat-option *ngFor="let area of $areas | async" [value]="area.strArea">
+          {{area.strArea}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col-4">
+    <mat-form-field class="w-100">
+      <mat-label>Ingredientes</mat-label>
+      <mat-select (selectionChange)="getByIngrediente()" [(ngModel)]="selectedIngrediente">
+        <mat-option *ngFor="let ingrediente of $ingredientes | async" [value]="ingrediente.strIngredient">
+          {{ingrediente.strIngredient}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <div class="col-4">
+    <mat-form-field class="w-100">
+      <mat-label>Categorias</mat-label>
+      <mat-select (selectionChange)="getByCategoria()" [(ngModel)]="selectedCategoria">
+        <mat-option *ngFor="let categoria of $categorias | async" [value]="categoria.strCategory">
+          {{categoria.strCategory}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+</div>
+
+<div class="row g-2 my-3">
+  <div class="col-12 col-lg-3" *ngFor="let platillo of platillos">
+    <platillo-item [platillo]="platillo" style="cursor: pointer;"></platillo-item>
+  </div>
+</div>
+
+<mat-divider></mat-divider>
+<h1 class="text-center mt-3">Platillos al azar</h1>
+<div id="myCarousel" class="carousel slide mt-3" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item" *ngFor="let platillo of random; let i = index" [ngClass]="{'active':i == 0}">
+      <platillo-item [platillo]="platillo" style="cursor: pointer;"></platillo-item>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next" #next>
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
